@@ -39,5 +39,5 @@ def preprocess_data(file_path, output_path):
 
 if __name__ == "__main__":
     input_file_path = 'loan_approval.csv'
-    output_file_path = 'preprocessing/processed_data.csv'
+    output_file_path = 'preprocessing/loan_approval_preprocessing.csv'
     X_train, X_test, y_train, y_test = preprocess_data(input_file_path, output_file_path)
