@@ -1,0 +1,37 @@
+name: Preprocessing Workflow
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  preprocessing:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run preprocessing script
+        run: |
+          python preprocessing/automated_Raniah-Maritza.py
+
+      - name: Commit preprocessed data
+        run: |
+          git config --global user.name "Raniah1403"
+          git config --global user.email "raniahmrz14@gmail.com"
+          git add preprocessing/processed_data.csv
+          git commit -m "Update preprocessed dataset"
+          git push
+            
