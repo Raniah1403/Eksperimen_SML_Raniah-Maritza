@@ -25,7 +25,7 @@ jobs:
 
       - name: Run preprocessing script
         run: |
-          python preprocessing/automated_Raniah-Maritza.py
+          python preprocessing/automate_Raniah-Maritza.py
 
       - name: Commit preprocessed data
         run: |
